@@ -34,16 +34,23 @@ function App() {
     <div>
       {
         page ==='home' ?
-          <div>
+          <div class="landing">
             <h1>Name of website</h1>
-            <h2>Blurb</h2>
-            <h3>Location:</h3>
-            <SearchBox submit={getLocationReq}/>
-            <h3>Time you have (hours):</h3>
-            <SearchBox submit={getTimeReq}/>
-            <h3>Price:</h3>
-            <SearchBox submit={getPriceReq}/>
-            <button onClick={submitInfo}>submit</button>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis id urna in pharetra. Nullam consequat quam vitae augue tincidunt, et egestas urna suscipit.
+              Etiam enim felis, gravida id posuere vitae, euismod a sapien. Ut pretium ullamcorper magna, at placerat magna vulputate at. Sed vehicula mi non sapien laoreet, 
+              non volutpat tortor interdum. Mauris mauris est, accumsan sed sagittis nec, pellentesque nec lacus. Proin congue, orci ac fermentum eleifend, diam nisl sagittis nibh, 
+              quis ornare ex massa vel elit.
+            </p>
+            <div class="form">
+              <h3>Location:</h3>
+              <SearchBox submit={getLocationReq}/>
+              <h3>Time you have (hours):</h3>
+              <SearchBox submit={getTimeReq}/>
+              <h3>Price:</h3>
+              <SearchBox submit={getPriceReq}/>
+              <button onClick={submitInfo}>Submit</button>
+            </div>
           </div>
         :
           <div>
