@@ -54,6 +54,7 @@ function App() {
             budget that you will have enough time to enjoy.
             </p>
             <div className="form">
+              <h3>Activity</h3>
               <DropDownMenu submit={getActivityReq}/>
               <h3>Location</h3>
               <SearchBox submit={getLocationReq}/>
