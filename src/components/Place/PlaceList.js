@@ -5,7 +5,7 @@ import Place from './Place';
 const PlaceList = (props) => {
 
     return (
-        <div>
+        <div class="locations">
             <h2>Locations</h2>
             {
                 props.places.map((place, i) => {
