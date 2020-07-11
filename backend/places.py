@@ -25,13 +25,18 @@ adress="Museum%20of%20Contemporary%20Art%20Australia&"
 #the location must be in lat/long
 #That's the fucntion we're going to use
 
-def Nearby_Search():
+#radius is in meter (here 5 000m as the radius of Paris)
+#Problem with maxprice : some activity don't have any price mentionned, so using Maxprice exclude all of this result 
+#MUST TRY RANKBY PROMINENCE
+
+def Nearby_Search(coord,maxprice,type,keyword):
 	url=(
 "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+
-"location=-33.8670522,151.1957362"+
-"&radius=1500"+
-"&type=restaurant"+
-"&keyword=cruise"+
+"location="+str(coord[0])+","+str(coord[1])+
+"&radius=5000"+
+#"&maxprice="+str(maxprice)+
+"&type="+type+
+#"&keyword="+keyword+
 "&key="+API_KEY
 		)
 	response=requests.get(url)
@@ -39,9 +44,13 @@ def Nearby_Search():
 	places_names=[]
 	for i in range(len(L)):
 		places_names.append(L[i]['name'])
-	print(places_names)
+	return(places_names)
+	#return response.json()
 
-#Nearby_Search()
+coord=[48.856614,2.3522219]
+maxprice=4
+type="museum"
+print(Nearby_Search(coord,maxprice,type,""))
 
 
 
@@ -64,4 +73,4 @@ def Text_Search():
 		places_names.append(L[i]['name'])
 	print(response.json())
 
-Text_Search()
+#Text_Search()
