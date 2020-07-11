@@ -37,17 +37,17 @@ function App() {
           <div class="landing">
             <h1>Name of website</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis id urna in pharetra. Nullam consequat quam vitae augue tincidunt, et egestas urna suscipit.
-              Etiam enim felis, gravida id posuere vitae, euismod a sapien. Ut pretium ullamcorper magna, at placerat magna vulputate at. Sed vehicula mi non sapien laoreet, 
-              non volutpat tortor interdum. Mauris mauris est, accumsan sed sagittis nec, pellentesque nec lacus. Proin congue, orci ac fermentum eleifend, diam nisl sagittis nibh, 
-              quis ornare ex massa vel elit.
+            In a new city for a day? Can't decide on where to go or what to do? Don't worry! 
+            <strong> NAME OF SITE</strong> will provide a list of locations with activities to explore within your 
+            budget that you will have enough time to enjoy.
             </p>
             <div class="form">
-              <h3>Location:</h3>
+              <h3>Location</h3>
               <SearchBox submit={getLocationReq}/>
-              <h3>Time you have (hours):</h3>
+              <h3>Time you have (hours)</h3>
               <SearchBox submit={getTimeReq}/>
-              <h3>Price:</h3>
+              <h3>Price</h3>
+              <p class="descriptor">Scale: 1 - 5 <br/>(very affordable - very expensive)</p>
               <SearchBox submit={getPriceReq}/>
               <button onClick={submitInfo}>Submit</button>
             </div>
