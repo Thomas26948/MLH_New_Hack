@@ -6,6 +6,7 @@ const PlaceList = (props) => {
 
     return (
         <div>
+            <h2>Locations</h2>
             {
                 props.places.map((place, i) => {
                     return (<Place key={i} location={place.location} hours={place.hours} cost={place.cost}/>);

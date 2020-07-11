@@ -54,7 +54,6 @@ function App() {
           </div>
         :
           <div>
-            <h3>Locations</h3>
             <PlaceList places={places}/>
           </div>
       }

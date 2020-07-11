@@ -4,9 +4,9 @@ import './Place.css';
 const Place = (props) => {
     return(
         <div>
-            <h3>Address: {props.location}</h3>
-            <h3>Hours: {props.hours}</h3>
-            <h3>Cost: {props.cost}</h3>
+            <h2>Address: {props.location}</h2>
+            <h2>Hours: {props.hours}</h2>
+            <h2>Cost: {props.cost}</h2>
         </div>
     );
 }
