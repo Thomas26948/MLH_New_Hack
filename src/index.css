@@ -53,10 +53,7 @@ button {
 /* classes */
 .landing {
   text-align: center;
-  /*
-  background: #F1F1F1;
-  */
-  min-width: 300px;
+  min-width: 370px;
   max-width: 780px;
   height: 85vh;
   margin: 3% auto;
@@ -66,21 +63,14 @@ button {
   text-align: center;
   vertical-align: center;
   background: #79BD9F ;
-  min-width: 250px;
-  max-width: 280px;
+  min-width: 370px;
+  max-width: 400px;
   width: 40vw;
   height: auto;
-
   padding-top: 1px;
   margin: 0 auto;
 }
 
-.descriptor {
-  padding: 0px 5px;
-  margin: 0;
-  margin-bottom: 8px;
-  line-height: 1.2;
-}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

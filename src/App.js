@@ -48,7 +48,6 @@ function App() {
               <h3>Time you have (hours)</h3>
               <SearchBox submit={getTimeReq}/>
               <h3>Price</h3>
-              <p className="descriptor">Scale: 1 - 5 <br/>(very affordable - very expensive)</p>
               <Slider submit={getPriceReq}/>
               <button onClick={submitInfo}>Submit</button>
             </div>
