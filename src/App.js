@@ -23,6 +23,10 @@ function App() {
     console.log(`price: ${price}`)
   }
 
+  const goToHomePage = () => {
+    setPage('home')
+  }
+
   const getActivityReq = (activity) => {
     setActivity(activity)
   }
@@ -62,6 +66,7 @@ function App() {
           </div>
         :
           <div>
+            <button onClick={goToHomePage}>Back Button</button>
             <PlaceList places={places}/>
           </div>
       }
