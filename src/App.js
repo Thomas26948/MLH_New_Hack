@@ -3,9 +3,11 @@ import './App.css';
 import SearchBox from './components/SearchBox/SearchBox';
 import PlaceList from './components/Place/PlaceList';
 import Slider from './components/Slider/Slider';
+import DropDownMenu from './components/DropDownMenu/DropDownMenu';
 
 function App() {
   const [page, setPage] = useState('home')
+  const [activity, setActivity] = useState('No_Preference')
   const [time, setTime] = useState('')
   const [price, setPrice] = useState('5')
   const [location, setLocation] = useState('')
@@ -15,9 +17,14 @@ function App() {
   const submitInfo = (event) => {
     setPage('info')
     console.log('submitted!')
+    console.log(`activity: ${activity}`)
     console.log(`location: ${location}`)
     console.log(`time: ${time}`)
     console.log(`price: ${price}`)
+  }
+
+  const getActivityReq = (activity) => {
+    setActivity(activity)
   }
 
   const getLocationReq = (loc) => {
@@ -43,6 +50,7 @@ function App() {
             budget that you will have enough time to enjoy.
             </p>
             <div className="form">
+              <DropDownMenu submit={getActivityReq}/>
               <h3>Location</h3>
               <SearchBox submit={getLocationReq}/>
               <h3>Time you have (hours)</h3>
