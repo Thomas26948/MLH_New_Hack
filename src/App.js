@@ -20,19 +20,19 @@ function App() {
     console.log(`price: ${price}`)
     // Send request to backend
     // This would be the url to the backend
-    const url = 'http://127.0.0.1:8000/api/'
-    await fetch(url, {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        location : location,
-        time : time,
-        price : price
-      })
-    })
-    .then(res => res.json()) // This is the json the server sent
-    .then(placesList => setPlaces(placesList))
-    .catch(err => console.log(err))
+    // const url = 'http://127.0.0.1:8000/api/'
+    // await fetch(url, {
+    //   method: 'post',
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify({
+    //     location : location,
+    //     time : time,
+    //     price : price
+    //   })
+    // })
+    // .then(res => res.json()) // This is the json the server sent
+    // .then(placesList => setPlaces(placesList))
+    // .catch(err => console.log(err))
   }
 
   const getLocationReq = (loc) => {
