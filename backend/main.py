@@ -4,7 +4,7 @@ from geocoding import *
 from distance import *
 
 import flask
-from flask import request, jsonify
+from flask import Flask, request, jsonify
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -19,13 +19,20 @@ app.config["DEBUG"] = True
 
 
 def main():
-	url = ("http://127.0.0.1:5000/api/")
+	#url = ("http://127.0.0.1:5000/api/")
 
-	response=requests.get(url)
-	activity=response.json()['activity']
-	location=response.json()['location']
-	time=response.json()['time']
-	price=response.json()['price']
+	#response=requests.get(url)
+	response=foo()
+	activity=response['activity']
+	location=response['location']
+	time=response['time']
+	price=response['price']
+
+	#activity=response.json()['activity']
+	#location=response.json()['location']
+	#time=response.json()['time']
+	#price=response.json()['price']
+
 	L=[]
 	L.append(activity)
 	L.append(location)
@@ -33,6 +40,13 @@ def main():
 	L.append(price)
 	return L
 
+
+
+
+@app.route('/foo', methods=['POST']) 
+def foo():
+    data = request.json
+    return jsonify(data)
 
 
 def calc(location,type,time,price):
