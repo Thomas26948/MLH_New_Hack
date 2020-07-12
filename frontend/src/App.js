@@ -15,7 +15,7 @@ function App() {
                                           // Initial place data is temporary and for testing purposes only -----------
   const [places, setPlaces] = useState([{location: 'Seattle, WA, USA', hours: '8:00am-5:00pm', cost: '$100'}, {location: 'Chicago, IL, USA', hours: '7:00am-8:00pm', cost: '$300'}])
 
-  const submitInfo = (event) => {
+  const submitInfo = async function(event) {
     setPage('info')
     console.log('submitted!')
     console.log(`activity: ${activity}`)
@@ -25,19 +25,20 @@ function App() {
 
     // Send request to backend
     // This would be the url to the backend
-    // const url = 'http://127.0.0.1:8000/api/'
-    // await fetch(url, {
-    //   method: 'post',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({
-    //     location : location,
-    //     time : time,
-    //     price : price
-    //   })
-    // })
-    // .then(res => res.json()) // This is the json the server sent
-    // .then(placesList => setPlaces(placesList))
-    // .catch(err => console.log(err))
+    const url = 'http://127.0.0.1:8000/api/'
+    await fetch(url, {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        activity: activity,
+        location : location,
+        time : time,
+        price : price
+      })
+    })
+    .then(res => res.json()) // This is the json the server sent
+    .then(placesList => setPlaces(placesList))
+    .catch(err => console.log(err))
   }
 
   const goToHomePage = () => {
