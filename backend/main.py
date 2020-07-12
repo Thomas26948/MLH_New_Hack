@@ -1,7 +1,7 @@
 import requests
-import places
-import geocoding
-import distance
+from places import *
+from geocoding import *
+from distance import *
 
 #Objectives :
 #recuperation of all the infos (city, duration, activity prefered)
@@ -11,4 +11,19 @@ import distance
 #return all of this info to the website
 
 
+
 def main():
+	
+
+
+def calc(location,type,time,price):
+	L=[]
+	timer=0
+	coord=geo(location)
+	price=price+1 # our scale is 1-5 and not 0-4
+	results=Nearby_Search(coord,price,type)
+	for i in range(len(results)):
+		if timer+results[i]['duration']<time:
+			L.append(results[i])
+		else:
+			return L

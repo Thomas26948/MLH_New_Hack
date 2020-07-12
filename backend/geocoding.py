@@ -21,6 +21,6 @@ def geo(city):
 	coord[1]=L['lng']
 	return coord
 
-city="Paris"
+#city="Paris, Texas"
 
-geo(city)
+#print(geo(city))

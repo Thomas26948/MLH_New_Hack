@@ -11,15 +11,25 @@ def Place_Search(adress):
 	url = (
 "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?"+
 "input="+adress+
-"inputtype=textquery"+
+"&inputtype=textquery"+
 "&fields=photos,formatted_address,name,rating,opening_hours,geometry,types,price_level"+
 "&key="+API_KEY)
 
 	response=requests.get(url)
-	print(response.json())
+	return response.json()
 
-adress="Museum%20of%20Contemporary%20Art%20Australia&"
-#Place_Search(adress)
+
+#adress="Musee d'Orsay"
+#print(Place_Search(adress))
+
+
+
+
+def duration_dico(activity):
+	L={'amusement_park':3,'aquarium':2,'art_gallery':2,'bar':2,'bowling_alley':2,'meal_takeaway':.5,'mosque':.5,'movie_theater':2,'museum':2,'night_club':2,'park':1,'restaurant':1,'shopping_mall':2,'stadium':2,'casino':1,'church':.5,'city_hall':.5,'hindu_temple':.5,'zoo':2,'tourist_attraction':1,'synagogue':.5}
+	return L[activity]
+
+
 
 #Nearby_Search allows you to find activities around a location
 #the location must be in lat/long
@@ -29,8 +39,16 @@ adress="Museum%20of%20Contemporary%20Art%20Australia&"
 #Problem with maxprice : some activity don't have any price mentionned, so using Maxprice exclude all of this result 
 #MUST TRY RANKBY PROMINENCE
 
-def Nearby_Search(coord,maxprice,type,keyword):
-	url=(
+def Nearby_Search(coord,maxprice,type):
+	if type=="No_Preference":
+		url=(
+"https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+
+"location="+str(coord[0])+","+str(coord[1])+
+"&radius=5000"+
+"&key="+API_KEY
+		)
+	else:
+		url=(
 "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"+
 "location="+str(coord[0])+","+str(coord[1])+
 "&radius=5000"+
@@ -43,15 +61,19 @@ def Nearby_Search(coord,maxprice,type,keyword):
 	L=response.json()['results']
 	places_names=[]
 	for i in range(len(L)):
-		places_names.append(L[i]['name'])
+		X={'name':"",'adress':"",'duration':""}
+		X['name']=(L[i]['name'])
+		X['adress']=(L[i]['vicinity'])
+		duration=duration_dico(type)
+		X['duration']=(duration)
+		places_names.append(X)
 	return(places_names)
 	#return response.json()
 
-coord=[48.856614,2.3522219]
-maxprice=4
-type="museum"
-print(Nearby_Search(coord,maxprice,type,""))
-
+#coord=[48.856614,2.3522219]
+#maxprice=4
+#type="museum"
+#print(Nearby_Search(coord,maxprice,type))
 
 
 

@@ -27,4 +27,4 @@ def matrix(coord_dep,coord_ar):
 	M.append(L['rows'][0]['elements'][0]['duration']['value'])
 	return M
 
-print(matrix())
+#print(matrix())
