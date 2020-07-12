@@ -12,8 +12,9 @@ from distance import *
 
 
 
-def main():
-	
+#def main():
+
+
 
 
 def calc(location,type,time,price):
@@ -25,5 +26,10 @@ def calc(location,type,time,price):
 	for i in range(len(results)):
 		if timer+results[i]['duration']<time:
 			L.append(results[i])
+			timer+=results[i]['duration']
 		else:
 			return L
+	return L
+
+
+print(calc("Paris","museum",8,5))
