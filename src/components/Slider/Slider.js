@@ -8,6 +8,7 @@ const Slider = (props) => {
                 <input 
                     type="range" 
                     min="1"
+                    defaultValue={props.prevInfo}
                     max="5"
                     onChange={e => props.submit(e.target.value)}
                 />

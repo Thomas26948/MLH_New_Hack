@@ -4,7 +4,7 @@ import './DropDownMenu.css';
 const DropDownMenu2 = (props) => {
     return (
         <select id="lang" onChange={e => props.submit(e.target.value)}>
-            <option value="No_Preference">Select an Activity</option>
+            <option value={props.prevInfo}>{props.prevReq}</option>
             <option value="No_Preference">No Preference</option>
             <option value="Amusement_Park">Amusement Park</option>
             <option value="Aquarium">Aquarium</option>

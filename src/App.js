@@ -8,6 +8,7 @@ import DropDownMenu from './components/DropDownMenu/DropDownMenu';
 function App() {
   const [page, setPage] = useState('home')
   const [activity, setActivity] = useState('No_Preference')
+  const [activityReq, setActivityReq] = useState('Select an Activity')
   const [time, setTime] = useState('')
   const [price, setPrice] = useState('5')
   const [location, setLocation] = useState('')
@@ -29,6 +30,7 @@ function App() {
 
   const getActivityReq = (activity) => {
     setActivity(activity)
+    setActivityReq(activity.replace('_', ' '))
   }
 
   const getLocationReq = (loc) => {
@@ -47,27 +49,27 @@ function App() {
       {
         page ==='home' ?
           <div className="landing">
-            <h1>Name of website</h1>
+            <h1>Exploratime</h1>
             <p>
-            In a new city for a day? Can't decide on where to go or what to do? Don't worry! 
-            <strong> NAME OF SITE</strong> will provide a list of locations with activities to explore within your 
+            In a new city for a day? Can't decide on where to go or what to do? Don't worry! <br/>
+            <strong>Exploratime</strong> will provide a list of locations with activities to explore within your 
             budget that you will have enough time to enjoy.
             </p>
             <div className="form">
               <h3>Activity</h3>
-              <DropDownMenu submit={getActivityReq}/>
+              <DropDownMenu prevInfo={activity} prevReq={activityReq} submit={getActivityReq}/>
               <h3>Location</h3>
-              <SearchBox submit={getLocationReq}/>
+              <SearchBox prevInfo={location} submit={getLocationReq}/>
               <h3>Time you have (hours)</h3>
-              <SearchBox submit={getTimeReq}/>
+              <SearchBox prevInfo={time} submit={getTimeReq}/>
               <h3>Price</h3>
-              <Slider submit={getPriceReq}/>
+              <Slider prevInfo={price} submit={getPriceReq}/>
               <button onClick={submitInfo}>Submit</button>
             </div>
           </div>
         :
           <div>
-            <button onClick={goToHomePage}>Back Button</button>
+            <button onClick={goToHomePage}>Revise Search</button>
             <PlaceList places={places}/>
           </div>
       }

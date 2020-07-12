@@ -7,6 +7,7 @@ const SearchBox = (props) => {
         <div>
             <input
                 type='text'
+                placeholder={props.prevInfo}
                 onChange={e => props.submit(e.target.value)}
             />
         </div>
