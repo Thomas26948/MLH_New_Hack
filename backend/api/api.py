@@ -23,6 +23,7 @@ def home():
 # A route to return all of the available entries in our catalog.
 @app.route('/api/', methods=['GET'])
 def api_all():
-    return jsonify(activity)
+	activity=request.get_json()
+    return activity
 
 app.run()

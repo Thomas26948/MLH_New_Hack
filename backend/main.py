@@ -19,19 +19,19 @@ app.config["DEBUG"] = True
 
 
 def main():
-	#url = ("http://127.0.0.1:5000/api/")
+	url = ("http://127.0.0.1:5000/api/")
 
-	#response=requests.get(url)
-	response=foo()
-	activity=response['activity']
-	location=response['location']
-	time=response['time']
-	price=response['price']
+	response=requests.get(url)
+	#response=foo()
+	#activity=response['activity']
+	#location=response['location']
+	#time=response['time']
+	#price=response['price']
 
-	#activity=response.json()['activity']
-	#location=response.json()['location']
-	#time=response.json()['time']
-	#price=response.json()['price']
+	activity=response.json()['activity']
+	location=response.json()['location']
+	time=response.json()['time']
+	price=response.json()['price']
 
 	L=[]
 	L.append(activity)
@@ -43,10 +43,10 @@ def main():
 
 
 
-@app.route('/foo', methods=['POST']) 
-def foo():
-    data = request.json
-    return jsonify(data)
+#@app.route('/foo', methods=['POST']) 
+#def foo():
+ #   data = request.json
+  #  return jsonify(data)
 
 
 def calc(location,type,time,price):
