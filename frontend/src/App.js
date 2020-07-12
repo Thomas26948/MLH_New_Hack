@@ -85,7 +85,7 @@ function App() {
           </div>
         :
           <div>
-            <button onClick={goToHomePage}>Revise Search</button>
+            <button class="revise-search" onClick={goToHomePage}>Revise Search</button>
             <PlaceList places={places}/>
           </div>
       }

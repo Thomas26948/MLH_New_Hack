@@ -66,7 +66,7 @@ h3 {
 .form {
   text-align: center;
   vertical-align: center;
-  background: #75B4AB  ;
+  background: #75B4AB;
   min-width: 370px;
   max-width: 400px;
   width: 40vw;
@@ -75,6 +75,20 @@ h3 {
   margin: 0 auto;
 }
 
+.revise-search {
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+  padding: 8px 15px;
+  margin: 10px 2px;
+  cursor: pointer;
+  position: relative;
+  left: 50%;
+  top: 30px;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
