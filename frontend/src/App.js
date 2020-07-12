@@ -25,7 +25,7 @@ function App() {
 
     // Send request to backend
     // This would be the url to the backend
-    const url = 'http://127.0.0.1:8000/api/'
+    const url = 'http://localhost:3001/'
     await fetch(url, {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
@@ -37,7 +37,10 @@ function App() {
       })
     })
     .then(res => res.json()) // This is the json the server sent
-    .then(placesList => setPlaces(placesList))
+    .then(placesList => {
+      setPlaces(placesList)
+      console.log(placesList)
+    })
     .catch(err => console.log(err))
   }
 
@@ -86,7 +89,7 @@ function App() {
           </div>
         :
           <div>
-            <button class="revise-search" onClick={goToHomePage}>Revise Search</button>
+            <button className="revise-search" onClick={goToHomePage}>Revise Search</button>
             <PlaceList places={places}/>
           </div>
       }

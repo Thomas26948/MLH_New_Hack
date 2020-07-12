@@ -12,7 +12,9 @@ activity = {
     'price':4
   }
 
-@app.route('/', methods=['GET'])
+HTTP_METHODS = ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'CONNECT', 'OPTIONS', 'TRACE', 'PATCH']
+
+@app.route('/', methods=HTTP_METHODS)
 def home():
     return '''<h1>Test</h1>
 <p>A prototype API .</p>'''
